@@ -1,0 +1,28 @@
+USE lab;
+
+CREATE TABLE Class (
+	`id` INT PRIMARY KEY AUTO_INCREMENT,
+    `name` VARCHAR(50)
+);
+
+INSERT INTO Class (`name`) VALUES ("LALAMAN"), ("SUSMA"), ("BEEKER");
+
+SELECT * FROM Class;
+
+START TRANSACTION;
+
+INSERT INTO Class (`name`) VALUES ("NEWMAN");
+ROLLBACK; 
+
+INSERT INTO Class (`name`) VALUES ("NEWMAN");
+COMMIT;
+
+START TRANSACTION;
+SAVEPOINT BeforeEvilEra;
+INSERT INTO Class (`name`) VALUES ("EVILERA");
+ROLLBACK TO BeforeEvilEra;
+
+COMMIT;
+
+# Submitted By : Heleena Anna Varghese
+# Reg No. : CHN18CS053
